@@ -1,2 +1,0 @@
-# BunchhayAPL
-For ITECalculator Only
