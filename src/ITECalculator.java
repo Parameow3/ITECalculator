@@ -5,7 +5,7 @@ import java.util.Scanner;
  * ITECalculator.java   (Main class) :    This class is created for Math Calculator
  * Created on Monday, January 10th 2022      by Tan Bunchhay
  */
-public class ITECalculator {
+public class  ITECalculator {
     /**
      * This is the main class of our project
      * @param args standard
@@ -203,12 +203,15 @@ public class ITECalculator {
                         System.out.println("***** Binary Converter *****");
                         System.out.println("Please Input Binary:");
                         Scanner input = new Scanner(System.in);
-                        long binary = input.nextLong();
-                        String binStr = input.toString();
+                       // long binary = input.nextLong();
+                        String binStr = input.next();
 
-                        System.out.println("Decimal: " + numberSystemConversion.binary2Decimal(binary));
-                        System.out.println("Octal: " + numberSystemConversion.binary2Octal(binStr));
-                        numberSystemConversion.binary2Hex(binary);
+                        //System.out.println("Decimal: " + numberSystemConversion.binary2Decimal(binary));
+                        if (numberSystemConversion.isValidBinary(binStr))
+                            System.out.println("Valid Input Binary!");
+                        else System.out.println("Octal: " + numberSystemConversion.binary2Octal(binStr));
+
+                        //numberSystemConversion.binary2Hex(binary);
                     } else if (option == 2) {
                         System.out.println("=====================================");
                         System.out.println("***** Octal Converter *****");

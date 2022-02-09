@@ -397,4 +397,19 @@ public class NumberSystemConversion {
         }
         return decimal;
     }
+
+    /**
+     *
+     * @param binary
+     * @return
+     */
+    boolean isValidBinary(String binary) {
+        int n = binary.length();
+        char check;
+        for (int i = 0; i < n; i++) {
+            check = binary.charAt(i);
+            if (check == '0' || check == '1'){}
+            else return true;
+        }return false;
+    }
 }
