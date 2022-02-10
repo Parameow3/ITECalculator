@@ -412,4 +412,44 @@ public class NumberSystemConversion {
             else return true;
         }return false;
     }
+
+    /**
+     *
+     * @param octal
+     * @return
+     */
+    boolean isValidOctal(String octal) {
+        boolean check = false;
+        for (int i = 0; i < octal.length(); i++){
+            if (octal.charAt(i) == '0' || octal.charAt(i) == '1' || octal.charAt(i) == '2'
+                    || octal.charAt(i) == '3' || octal.charAt(i) == '4' || octal.charAt(i) == '5'
+                    || octal.charAt(i) == '6' || octal.charAt(i) == '7' ) {
+                check = false;
+            }
+            else {
+                check = true;
+                break;
+            }
+        }
+        return check;
+    }
+
+    /**
+     *
+     * @param decimal
+     * @return
+     */
+    boolean isValidDecimal(String decimal) {
+        boolean check = false;
+        for (int i = 0; i < decimal.length(); i++) {
+            if (decimal.charAt(i) == '0' || decimal.charAt(i) == '1' || decimal.charAt(i) == '2'
+                    || decimal.charAt(i) == '3' || decimal.charAt(i) == '4' || decimal.charAt(i) == '5'
+                    || decimal.charAt(i) == '6' || decimal.charAt(i) == '7' || decimal.charAt(i) == '8'
+                    || decimal.charAt(i) == '9') {
+                check = false;
+            } else {
+                check = true;
+            }
+        }return check;
+    }
 }
