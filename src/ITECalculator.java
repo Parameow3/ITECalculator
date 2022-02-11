@@ -203,44 +203,58 @@ public class  ITECalculator {
                         System.out.println("***** Binary Converter *****");
                         System.out.println("Please Input Binary:");
                         Scanner input = new Scanner(System.in);
-                       // long binary = input.nextLong();
-                        String binStr = input.next();
-
-                        //System.out.println("Decimal: " + numberSystemConversion.binary2Decimal(binary));
-                        if (numberSystemConversion.isValidBinary(binStr))
+                        String binary = input.nextLine();
+                        //Check digit of binary before convert
+                        if (numberSystemConversion.isValidBinary(binary))
                             System.out.println("Valid Input Binary!");
-                        else System.out.println("Octal: " + numberSystemConversion.binary2Octal(binStr));
-
-                        //numberSystemConversion.binary2Hex(binary);
+                        else {
+                            System.out.println("Octal: " + numberSystemConversion.binary2Octal(binary));
+                            System.out.println("Decimal: " + numberSystemConversion.binary2Decimal(binary));
+                            numberSystemConversion.binary2Hex(binary);
+                        }
                     } else if (option == 2) {
                         System.out.println("=====================================");
                         System.out.println("***** Octal Converter *****");
                         System.out.print("Please Input Octal:");
                         Scanner input = new Scanner(System.in);
-                        long octal = input.nextLong();
-                        System.out.println("Decimal: " + numberSystemConversion.octal2Decimal(octal));
-                        numberSystemConversion.octal2Binary(octal);
-                        System.out.println();
-                        numberSystemConversion.octal2Hex(octal);
+                        String octal = input.nextLine();
+                        if (numberSystemConversion.isValidOctal(octal))
+                            System.out.println("Valid Input Octal!");
+                        else {
+                            System.out.println("Decimal: " + numberSystemConversion.octal2Decimal(octal));
+                            numberSystemConversion.octal2Binary(octal);
+                            System.out.println();
+                            numberSystemConversion.octal2Hex(octal);
+                        }
+
                     } else if (option == 3) {
                         System.out.println("=====================================");
                         System.out.println("***** Decimal Converter *****");
                         System.out.print("Please Input Decimal:");
                         Scanner input = new Scanner(System.in);
                         long decimal = input.nextLong();
-                        numberSystemConversion.decimal2Binary(decimal);
-                        numberSystemConversion.decimal2Octal(decimal);
-                        numberSystemConversion.decimal2Hex(decimal);
+                        String decStr = input.nextLine();
+                        if (numberSystemConversion.isValidDecimal(decStr))
+                            System.out.println("Valid Input Decimal!");
+                        else {
+                            numberSystemConversion.decimal2Binary(decimal);
+                            numberSystemConversion.decimal2Octal(decimal);
+                            numberSystemConversion.decimal2Hex(decimal);
+                        }
                     } else if (option == 4) {
                         System.out.println("=====================================");
                         System.out.println("***** Hexadecimal Converter *****");
                         System.out.print("Please Input Hexadecimal:");
                         Scanner input = new Scanner(System.in);
-                        String hex = input.next();
+                        String hex = input.nextLine().toUpperCase();
                         //Display result
-                        System.out.println("Binary: " + numberSystemConversion.hex2Binary(hex));
-                        numberSystemConversion.hex2Octal(hex);
-                        System.out.println("Decimal: " + numberSystemConversion.hex2Decimal(hex));
+                        if (numberSystemConversion.isValidHex(hex))
+                            System.out.println("Valid Input Hexadecimal!");
+                        else {
+                            System.out.println("Binary: " + numberSystemConversion.hex2Binary(hex));
+                            numberSystemConversion.hex2Octal(hex);
+                            System.out.println("Decimal: " + numberSystemConversion.hex2Decimal(hex));
+                        }
                     } else System.out.println("Valid Input!");
                 }
                 case 0 -> {

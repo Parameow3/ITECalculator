@@ -15,31 +15,30 @@ public class NumberSystemConversion {
 
     /**
      * This method is for convert from binary to decimal
-     * @param binary get value in long integer type for covert
+     * @param binary get value in Sting type for covert
      * @return return full value of decimal
      */
-    long binary2Decimal(long binary){
+    long binary2Decimal(String binary){
         long decimal = 0;
-        String temp = Long.toString(binary);
-        long[] digit = new long[temp.length()];
-        for (int i = 0; i < temp.length(); i++) {
-            digit[i] = temp.charAt(i) - '0';
-            decimal = decimal + (digit[i] * (long) Math.pow(2, temp.length() - i - 1));
+        long[] digit = new long[binary.length()];
+        for (int i = 0; i < binary.length(); i++) {
+            digit[i] = binary.charAt(i) - '0';
+            decimal = decimal + (digit[i] * (long) Math.pow(2, binary.length() - i - 1));
         }
         return decimal;
     }
 
     /**
      * This method is for convert from binary to octal
-     * @param binary get value in long integer type for covert
+     * @param binary get value in String type for covert
      * @return return full value of octal
      */
-    int binary2Octal(String binary){
-        int octal3Digit;
-        int count3Digit = 0;
-        int octal = 0;
+    long binary2Octal(String binary){
+        long octal3Digit;
+        long count3Digit = 0;
+        long octal = 0;
         int n = binary.length();
-        int[] digit = new int[n];
+        long[] digit = new long[n];
         for (int i = 0; i < n; i++){
             digit[i] = binary.charAt(i) - '0';
         }
@@ -51,7 +50,7 @@ public class NumberSystemConversion {
                 octal3Digit = digit[i];
             else
                 octal3Digit = digit[i] + (digit[i-1] * 2) + (digit[i-2]* 4);
-            octal = octal + (octal3Digit * (int) Math.pow(10, count3Digit));
+            octal = octal + (octal3Digit * (long) Math.pow(10, count3Digit));
             count3Digit++;
         }
         return octal;
@@ -59,15 +58,14 @@ public class NumberSystemConversion {
 
     /**
      * This method is for convert from binary to Hexadecimal
-     * @param binary get value in long integer type for covert
+     * @param binary get value in Sting type for covert
      */
-    void binary2Hex(long binary){
+    void binary2Hex(String binary){
         long Hex4Digit;
-        String temp = Long.toString(binary);
-        int n = temp.length();
+        int n = binary.length();
         long[] digit = new long[n];
         for (int i = 0; i < n; i++) {
-            digit[i] = temp.charAt(i) - '0';
+            digit[i] = binary.charAt(i) - '0';
         }
         System.out.print("Hexadecimal: ");
         for (int i = n - 1 ; i >= 0; i-=4){
@@ -104,30 +102,28 @@ public class NumberSystemConversion {
 
     /**
      * This method is for convert from octal to decimal
-     * @param octal get value in long integer type for covert
+     * @param octal get value in String type for covert
      * @return return full value of decimal
      */
-    long octal2Decimal(long octal){
+    long octal2Decimal(String octal){
         long decimal = 0;
-        String temp = Long.toString(octal);
-        long[] digit = new long[temp.length()];
-        for (int i = 0; i < temp.length(); i++) {
-            digit[i] = temp.charAt(i) - '0';
-            decimal = decimal + (digit[i] * (long) Math.pow(8, temp.length() - i - 1));
+        long[] digit = new long[octal.length()];
+        for (int i = 0; i < octal.length(); i++) {
+            digit[i] = octal.charAt(i) - '0';
+            decimal = decimal + (digit[i] * (long) Math.pow(8, octal.length() - i - 1));
         }
         return decimal;
     }
 
     /**
      * This method is for convert from octal to binary
-     * @param octal get value in long integer type for covert and then print result out
+     * @param octal get value in String type for covert and then print result out
      */
-    void octal2Binary(long octal){
-        String temp = Long.toString(octal);
-        long[] digit = new long[temp.length()];
+    void octal2Binary(String octal){
+        long[] digit = new long[octal.length()];
         System.out.print("Binary: ");
-        for (int i = 0; i < temp.length(); i++) {
-            digit[i] = temp.charAt(i) - '0';
+        for (int i = 0; i < octal.length(); i++) {
+            digit[i] = octal.charAt(i) - '0';
             if (digit[i] - 7 == 0)
                 Binary3Digit.add("111");
             else if (digit[i] - 7 == -1)
@@ -150,9 +146,9 @@ public class NumberSystemConversion {
 
     /**
      * This method is for convert from octal to Hex
-     * @param octal get value in long integer type for covert and then print result out
+     * @param octal get value in String type for covert and then print result out
      */
-    void octal2Hex(long octal){
+    void octal2Hex(String octal){
         long decimal = octal2Decimal(octal);
         long Remainder;
         System.out.print("Hexadecimal: ");
@@ -288,9 +284,9 @@ public class NumberSystemConversion {
     }
 
     /**
-     *
-     * @param hex
-     * @return
+     * This method is for convert from Hexadecimal to Binary
+     * @param hex get value in String type for covert and then return result
+     * @return return Binary
      */
     String hex2Binary(String hex) {
         char bin;
@@ -338,8 +334,8 @@ public class NumberSystemConversion {
     }
 
     /**
-     *
-     * @param hex
+     * This method is for convert from Hexadecimal to Octal
+     * @param hex get value in String type for covert and then return result
      */
     void hex2Octal(String hex) {
         Binary4Digit.clear();
@@ -348,9 +344,9 @@ public class NumberSystemConversion {
     }
 
     /**
-     *
-     * @param hex
-     * @return
+     * This method is for convert from Hexadecimal to Decimal
+     * @param hex get value in String type for covert and then return result
+     * @return return Decimal
      */
     long hex2Decimal(String hex) {
         int n = hex.length();
@@ -399,24 +395,30 @@ public class NumberSystemConversion {
     }
 
     /**
-     *
-     * @param binary
-     * @return
+     * This method is for check Binary digit that user input is valid or not
+     * @param binary receive binary input from user
+     * @return return true or false for confirm that input is right
      */
     boolean isValidBinary(String binary) {
         int n = binary.length();
-        char check;
+        char temp;
+        boolean check = false;
         for (int i = 0; i < n; i++) {
-            check = binary.charAt(i);
-            if (check == '0' || check == '1'){}
-            else return true;
-        }return false;
+            temp = binary.charAt(i);
+            if (temp == '0' || temp == '1'){
+                check = false;
+            }
+            else {
+                check = true;
+                break;
+            }
+        }return check;
     }
 
     /**
-     *
-     * @param octal
-     * @return
+     * This method is for check Octal digit that user input is valid or not
+     * @param octal receive octal input from user
+     * @return return true or false for confirm that input is right
      */
     boolean isValidOctal(String octal) {
         boolean check = false;
@@ -435,9 +437,9 @@ public class NumberSystemConversion {
     }
 
     /**
-     *
-     * @param decimal
-     * @return
+     * This method is for check Decimal digit that user input is valid or not
+     * @param decimal receive octal input from user
+     * @return return true or false for confirm that input is right
      */
     boolean isValidDecimal(String decimal) {
         boolean check = false;
@@ -449,7 +451,30 @@ public class NumberSystemConversion {
                 check = false;
             } else {
                 check = true;
+                break;
             }
         }return check;
+    }
+
+    /**
+     * This method is for check Hexadecimal digit that user input is valid or not
+     * @param hex receive octal input from user
+     * @return return true or false for confirm that input is right
+     */
+    boolean isValidHex(String hex) {
+        boolean check = false;
+        for (int i = 0; i < hex.length(); i++) {
+            if (hex.charAt(i) == '0' || hex.charAt(i) == '1' || hex.charAt(i) == '2'
+                    || hex.charAt(i) == '3' || hex.charAt(i) == '4' || hex.charAt(i) == '5'
+                    || hex.charAt(i) == '6' || hex.charAt(i) == '7' || hex.charAt(i) == '8'
+                    || hex.charAt(i) == '9' || hex.charAt(i) == 'A' || hex.charAt(i) == 'B'
+                    || hex.charAt(i) == 'C' || hex.charAt(i) == 'D' || hex.charAt(i) == 'E'
+                    || hex.charAt(i) == 'F') {
+                check = false;
+            } else {
+                check = true;
+                break;
+            }
+        } return check;
     }
 }
