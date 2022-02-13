@@ -21,6 +21,7 @@ public class  ITECalculator {
             System.out.println("4. Money Exchange");
             System.out.println("5. Storage Converter");
             System.out.println("6. Number System Conversion");
+            System.out.println("7. Binary Arithmetic");
             System.out.println("0. Exit");
             System.out.print("PLease Input your Option:");
             Scanner sc = new Scanner(System.in);
@@ -256,6 +257,30 @@ public class  ITECalculator {
                             System.out.println("Decimal: " + numberSystemConversion.hex2Decimal(hex));
                         }
                     } else System.out.println("Valid Input!");
+                }
+                case 7 -> {
+                    BinaryArithmetic binaryArithmetic = new BinaryArithmetic();
+                    NumberSystemConversion numberSystemConversion = new NumberSystemConversion();
+                    System.out.println("=====================================");
+                    System.out.println("********** Binary Arithmetic **********");
+                    System.out.println("Please Input:");
+                    System.out.println("Binary1: ");
+                    Scanner input1 = new Scanner(System.in);
+                    String bin1 = input1.nextLine();
+                    System.out.println("Binary2: ");
+                    Scanner input2 = new Scanner(System.in);
+                    String bin2 = input2.nextLine();
+                    if (numberSystemConversion.isValidBinary(bin1) || numberSystemConversion.isValidBinary(bin2))
+                        System.out.println("Valid Input Binary");
+                    else {
+                        System.out.println("=====================================");
+                        binaryArithmetic.binaryAdd(bin1, bin2);
+                        binaryArithmetic.binarySubtraction(bin1, bin2);
+                        System.out.println("=====================================");
+                        //first complement display
+                        System.out.println("1's Complement of binary1: " + binaryArithmetic.findFirstComplement(bin1));
+                        System.out.println("1's Complement of binary2: " + binaryArithmetic.findFirstComplement(bin2));
+                    }
                 }
                 case 0 -> {
                     System.out.println("\n=====================================");
