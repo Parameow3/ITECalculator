@@ -256,11 +256,16 @@ public class  ITECalculator {
                             numberSystemConversion.hex2Octal(hex);
                             System.out.println("Decimal: " + numberSystemConversion.hex2Decimal(hex));
                         }
-                    } else System.out.println("Valid Input!");
+                    } else System.out.println("InValid Input!");
                 }
                 case 7 -> {
                     BinaryArithmetic binaryArithmetic = new BinaryArithmetic();
                     NumberSystemConversion numberSystemConversion = new NumberSystemConversion();
+
+                    // create object of inner class in other class
+                    BinaryArithmetic.Complement binaryCom = binaryArithmetic.new Complement();
+
+                    // user input
                     System.out.println("=====================================");
                     System.out.println("********** Binary Arithmetic **********");
                     System.out.println("Please Input:");
@@ -270,16 +275,24 @@ public class  ITECalculator {
                     System.out.println("Binary2: ");
                     Scanner input2 = new Scanner(System.in);
                     String bin2 = input2.nextLine();
+
+                    // checking binary is valid
                     if (numberSystemConversion.isValidBinary(bin1) || numberSystemConversion.isValidBinary(bin2))
-                        System.out.println("Valid Input Binary");
+                        System.out.println("Invalid Input Binary");
                     else {
                         System.out.println("=====================================");
-                        binaryArithmetic.binaryAdd(bin1, bin2);
+                        System.out.println("Binary1 + Binary2 = " + binaryArithmetic.binaryAdd(bin1, bin2));
                         binaryArithmetic.binarySubtraction(bin1, bin2);
                         System.out.println("=====================================");
                         //first complement display
-                        System.out.println("1's Complement of binary1: " + binaryArithmetic.findFirstComplement(bin1));
-                        System.out.println("1's Complement of binary2: " + binaryArithmetic.findFirstComplement(bin2));
+                        System.out.println("1's Complement of binary1: " + binaryCom.findFirstComplement(bin1));
+                        System.out.println("1's Complement of binary2: " + binaryCom.findFirstComplement(bin2));
+                        //second complement display
+                        System.out.println("2's Complement of binary1: " + binaryCom.findSecondComplement(bin1));
+                        System.out.println("2's Complement of binary2: " + binaryCom.findSecondComplement(bin2));
+                        // Complement Arithmetic operator display
+                        System.out.println("addWith2ndComplement: " + binaryArithmetic.addWith2ndComplement(bin1, bin2));
+                        System.out.println("subtractWith2ndComplement: " + binaryArithmetic.subtractWith2ndComplement(bin1, bin2));
                     }
                 }
                 case 0 -> {
