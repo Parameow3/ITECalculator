@@ -8,7 +8,7 @@ import java.util.Collections;
  */
 
 public class BinaryArithmetic {
-
+    private Complement complement;
     //Array List for bin1
     ArrayList<Character> binary1 = new ArrayList<>();
     //Array Lise for bin2
@@ -19,13 +19,22 @@ public class BinaryArithmetic {
     ArrayList<Character> remainder = new ArrayList<>();
     //Arraylist for First Complement
     ArrayList<String> firstComplement = new ArrayList<>();
+
+    public BinaryArithmetic() {
+        complement = new Complement();
+    }
     //=======================================================
     /**
-     * This method was created for summation of 2 binary and then display the result
+     * This method was created for summation of 2 binary and then return the result
      * @param bin1 get value of first binary from user input
      * @param bin2 get value of second binary from user input
+     * @return return binary addition result
      */
-    void binaryAdd(String bin1, String bin2) {
+    String binaryAdd(String bin1, String bin2) {
+        newBin.clear();
+        binary1.clear();
+        binary2.clear();
+        remainder.clear();
         int nBin1 = bin1.length();
         int nBin2 = bin2.length();
         int tempN;
@@ -100,11 +109,7 @@ public class BinaryArithmetic {
         }
         Collections.reverse(newBin);
         String binStr = String.join("", newBin);
-        System.out.println("Binary1 + Binary2 = " + binStr);
-        newBin.clear();
-        binary1.clear();
-        binary2.clear();
-        remainder.clear();
+        return binStr;
     }
     //=================================================
     /**
@@ -113,6 +118,11 @@ public class BinaryArithmetic {
      * @param bin2 get value of second binary from user input
      */
     void binarySubtraction(String bin1, String bin2) {
+        newBin.clear();
+        binary1.clear();
+        binary2.clear();
+        remainder.clear();
+
         int nBin1 = bin1.length();
         int nBin2 = bin2.length();
         int tempN;
@@ -181,26 +191,91 @@ public class BinaryArithmetic {
         Collections.reverse(newBin);
         String binStr = String.join("", newBin);
         System.out.println("Binary1 - Binary2 = " + binStr);
-        newBin.clear();
-        binary1.clear();
-        binary2.clear();
     }
     //=================================================
-
     /**
-     * This method was created for covert from binary to 1's complement
-     * @param binary get value of binary from user input
-     * @return return the result of 1's complement
+     * This method was created for add operation of two binary with 2nd Complement then return the result of binary addition
+     * @param bin1 get value of first binary from user input
+     * @param bin2 get value of Second binary from user input
+     * @return return binary addition result
      */
-    String findFirstComplement(String binary) {
-        for (int i = 0; i < binary.length(); i++) {
-            if (binary.charAt(i) == '1')
-                firstComplement.add("0");
-            else
-                firstComplement.add("1");
+    String addWith2ndComplement(String bin1, String bin2) {
+        String binary1, binary2;
+        StringBuilder bin32bit1 = new StringBuilder(32);
+        StringBuilder bin32bit2 = new StringBuilder(32);
+        if (bin1.length() + 1 == 32){ binary1 = bin1; }
+        else {
+            for (int i = 0; i < 32 - bin1.length(); i++){
+                bin32bit1.append("0");
+            }
+            bin32bit1.append(bin1);
+            binary1 = bin32bit1.toString();
         }
-        String firstCom = String.join("",firstComplement);
-        firstComplement.clear();
-        return firstCom;
+        if (bin2.length() + 1 == 32){ binary2 = bin2; }
+        else {
+            for (int i = 0; i < 32 - bin2.length(); i++){
+                bin32bit2.append("0");
+            }
+            bin32bit2.append(bin2);
+            binary2 = bin32bit2.toString();
+        }
+        return binaryAdd(binary1, binary2);
+    }
+    //=================================================
+    /**
+     * This method was created for subtract operation of two binary with 2nd Complement then return the result of binary subtraction
+     * @param bin1 get value of first binary from user input
+     * @param bin2 get value of Second binary from user input
+     * @return return binary subtraction result
+     */
+    String subtractWith2ndComplement(String bin1, String bin2) {
+        String secComplementBin2;
+        StringBuilder bin32bit2 = new StringBuilder(32);
+        if (bin2.length() + 1 == 32) {
+            secComplementBin2 = bin2;
+        } else {
+            for (int i = 0; i < 32 - bin2.length(); i++) {
+                bin32bit2.append("0");
+            }
+            bin32bit2.append(bin2);
+            secComplementBin2 = complement.findSecondComplement(bin32bit2.toString());
+        }
+        String result = addWith2ndComplement(bin1, secComplementBin2);
+        String finalResult;
+        if (result.length() == 33)
+        finalResult = result.replaceFirst("1", "");
+        else finalResult = result;
+        return finalResult;
+    }
+    //=================================================
+    //Nested class
+    public class Complement {
+        /**
+         * This method was created for covert from binary to 1's complement
+         *
+         * @param binary get value of binary from user input
+         * @return return the result of 1's complement
+         */
+        String findFirstComplement(String binary) { //10011
+            for (int i = 0; i < binary.length(); i++) {
+                if (binary.charAt(i) == '1')
+                    firstComplement.add("0");
+                else
+                    firstComplement.add("1");
+            }
+            String firstCom = String.join("", firstComplement);
+            firstComplement.clear();
+            return firstCom; //01100
+        }
+
+        /**
+         * This method was created for covert from binary to 2's complement
+         *
+         * @param binary get value of binary from user input
+         * @return return the result of 2's complement
+         */
+        String findSecondComplement(String binary) { //100100
+            return binaryAdd(findFirstComplement(binary), "1");
+        }
     }
 }
