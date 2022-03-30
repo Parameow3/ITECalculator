@@ -238,7 +238,7 @@ public class  ITECalculator {
                         if (numberSystemConversion.isValidDecimal(decStr))
                             System.out.println("Valid Input Decimal!");
                         else {
-                            numberSystemConversion.decimal2Binary(decimal);
+                            System.out.println("Binary: " + numberSystemConversion.decimal2Binary(decimal));
                             numberSystemConversion.decimal2Octal(decimal);
                             numberSystemConversion.decimal2Hex(decimal);
                         }
@@ -268,31 +268,96 @@ public class  ITECalculator {
                     // user input
                     System.out.println("=====================================");
                     System.out.println("********** Binary Arithmetic **********");
-                    System.out.println("Please Input:");
-                    System.out.println("Binary1: ");
-                    Scanner input1 = new Scanner(System.in);
-                    String bin1 = input1.nextLine();
-                    System.out.println("Binary2: ");
-                    Scanner input2 = new Scanner(System.in);
-                    String bin2 = input2.nextLine();
+                    System.out.println("1. Binary Add/Subtract");
+                    System.out.println("2. add/subtract With2ndComplement");
+                    System.out.println("3. Binary Multiply/Divide");
+                    System.out.println("PLease choose 1 to 3:");
+                    Scanner choice = new Scanner(System.in);
+                    int ch = choice.nextInt();
 
-                    // checking binary is valid
-                    if (numberSystemConversion.isValidBinary(bin1) || numberSystemConversion.isValidBinary(bin2))
-                        System.out.println("Invalid Input Binary");
-                    else {
-                        System.out.println("=====================================");
-                        System.out.println("Binary1 + Binary2 = " + binaryArithmetic.binaryAdd(bin1, bin2));
-                        binaryArithmetic.binarySubtraction(bin1, bin2);
-                        System.out.println("=====================================");
-                        //first complement display
-                        System.out.println("1's Complement of binary1: " + binaryCom.findFirstComplement(bin1));
-                        System.out.println("1's Complement of binary2: " + binaryCom.findFirstComplement(bin2));
-                        //second complement display
-                        System.out.println("2's Complement of binary1: " + binaryCom.findSecondComplement(bin1));
-                        System.out.println("2's Complement of binary2: " + binaryCom.findSecondComplement(bin2));
-                        // Complement Arithmetic operator display
-                        System.out.println("addWith2ndComplement: " + binaryArithmetic.addWith2ndComplement(bin1, bin2));
-                        System.out.println("subtractWith2ndComplement: " + binaryArithmetic.subtractWith2ndComplement(bin1, bin2));
+                    if (ch == 1){
+                        System.out.println("Please Input:");
+                        System.out.println("Binary1: ");
+                        Scanner input1 = new Scanner(System.in);
+                        String bin1 = input1.nextLine();
+                        System.out.println("Binary2: ");
+                        Scanner input2 = new Scanner(System.in);
+                        String bin2 = input2.nextLine();
+
+                        // checking binary is valid
+                        if (numberSystemConversion.isValidBinary(bin1) || numberSystemConversion.isValidBinary(bin2))
+                            System.out.println("Invalid Input Binary");
+                        else {
+                            System.out.println("=====================================");
+                            System.out.println("Binary1: " + bin1 + "\t[" + numberSystemConversion.binary2Decimal(bin1) + "]");
+                            System.out.println("Binary2: " + bin2 + "\t[" + numberSystemConversion.binary2Decimal(bin2) + "]");
+                            System.out.println("=====================================");
+                            System.out.println("Binary1 + Binary2 = " + binaryArithmetic.binaryAdd(bin1, bin2) + "\t[" + (numberSystemConversion.binary2Decimal(bin1) + numberSystemConversion.binary2Decimal(bin2)) + "]");
+                            System.out.println("Binary1 - Binary2 = " + binaryArithmetic.binarySubtraction(bin1, bin2) + "\t[" + (numberSystemConversion.binary2Decimal(bin1) - numberSystemConversion.binary2Decimal(bin2)) + "]");
+//                            System.out.println("=====================================");
+                            //first complement display
+//                            System.out.println("1's Complement of binary1: " + binaryCom.findFirstComplement(bin1));
+//                            System.out.println("1's Complement of binary2: " + binaryCom.findFirstComplement(bin2));
+                            //second complement display
+//                            System.out.println("2's Complement of binary1: " + binaryCom.findSecondComplement(bin1));
+//                            System.out.println("2's Complement of binary2: " + binaryCom.findSecondComplement(bin2));
+                        }
+                    }
+                    else if (ch == 2) {
+                        System.out.println("Instruction: if you want to input 2's, please make sure that your input is 32bit:");
+                        System.out.println("Binary1: ");
+                        Scanner input1 = new Scanner(System.in);
+                        String bin1 = input1.nextLine();
+                        System.out.println("Binary2: ");
+                        Scanner input2 = new Scanner(System.in);
+                        String bin2 = input2.nextLine();
+
+                        long DecOfB1, DecOfB2;
+                        // checking binary is valid
+                        if (numberSystemConversion.isValidBinary(bin1) || numberSystemConversion.isValidBinary(bin2))
+                            System.out.println("Invalid Input Binary");
+                        else {
+                            System.out.println("=====================================");
+                            if (bin1.length() == 32) {
+                                DecOfB1 = -numberSystemConversion.binary2Decimal(binaryCom.findFirstComplement(binaryArithmetic.binarySubtraction(bin1, "1")));
+                                System.out.println("Binary1: " + bin1 + "\t[" + DecOfB1 + "]");
+                            }else {
+                                DecOfB1 = numberSystemConversion.binary2Decimal(bin1);
+                                System.out.println("Binary1: " + bin1 + "\t[" + DecOfB1 + "]");
+                            }
+                            if (bin2.length() == 32) {
+                                DecOfB2 = -numberSystemConversion.binary2Decimal(binaryCom.findFirstComplement(binaryArithmetic.binarySubtraction(bin2, "1")));
+                                System.out.println("Binary2: " + bin2 + "\t[" + DecOfB2 + "]");
+                            }else {
+                                DecOfB2 = numberSystemConversion.binary2Decimal(bin2);
+                                System.out.println("Binary2: " + bin2 + "\t[" + DecOfB2 + "]");
+
+                            }
+                            System.out.println("=====================================");
+                            // Complement Arithmetic operator display
+                            System.out.println("addWith2ndComplement: " + binaryArithmetic.addWith2ndComplement(bin1, bin2) + "\t[" + (DecOfB1 + DecOfB2) + "]");
+                            System.out.println("subtractWith2ndComplement: " + binaryArithmetic.subtractWith2ndComplement(bin1, bin2) + "\t[" + (DecOfB1 - DecOfB2) + "]");
+                        }
+                    }
+                    else if (ch == 3){
+                        System.out.println("Binary1: ");
+                        Scanner input1 = new Scanner(System.in);
+                        String bin1 = input1.nextLine();
+                        System.out.println("Binary2: ");
+                        Scanner input2 = new Scanner(System.in);
+                        String bin2 = input2.nextLine();
+
+                        // checking binary is valid
+                        if (numberSystemConversion.isValidBinary(bin1) || numberSystemConversion.isValidBinary(bin2))
+                            System.out.println("Invalid Input Binary");
+                        else {
+                            System.out.println("=====================================");
+                            System.out.println("Binary1: " + bin1 + "\t[" + numberSystemConversion.binary2Decimal(bin1) + "]");
+                            System.out.println("Binary2: " + bin2 + "\t[" + numberSystemConversion.binary2Decimal(bin2) + "]");
+                            System.out.println("=====================================");
+                            System.out.println("Binary1 * Binary2 = " + binaryArithmetic.multiplyBinary(bin1, bin2) + "\t[" + numberSystemConversion.binary2Decimal(binaryArithmetic.multiplyBinary(bin1, bin2)) + "]");
+                            System.out.println("Binary1 / Binary2 = " + binaryArithmetic.divideBinary(bin1, bin2) + "\t[" + numberSystemConversion.binary2Decimal(binaryArithmetic.divideBinary(bin1, bin2)) + "]");
+                        }
                     }
                 }
                 case 0 -> {

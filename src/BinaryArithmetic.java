@@ -19,6 +19,10 @@ public class BinaryArithmetic {
     ArrayList<Character> remainder = new ArrayList<>();
     //Arraylist for First Complement
     ArrayList<String> firstComplement = new ArrayList<>();
+    //Arraylist for multiply digit
+    ArrayList<Integer> multiplyDigit = new ArrayList<>();
+    //Arraylist for store binary-multiply
+    ArrayList<String> binMultiply = new ArrayList<>();
 
     public BinaryArithmetic() {
         complement = new Complement();
@@ -117,11 +121,12 @@ public class BinaryArithmetic {
      * @param bin1 get value of first binary from user input
      * @param bin2 get value of second binary from user input
      */
-    void binarySubtraction(String bin1, String bin2) {
+    String binarySubtraction(String bin1, String bin2) {
         newBin.clear();
         binary1.clear();
         binary2.clear();
         remainder.clear();
+        NumberSystemConversion numberSystemConversion = new NumberSystemConversion();
 
         int nBin1 = bin1.length();
         int nBin2 = bin2.length();
@@ -190,7 +195,7 @@ public class BinaryArithmetic {
         }
         Collections.reverse(newBin);
         String binStr = String.join("", newBin);
-        System.out.println("Binary1 - Binary2 = " + binStr);
+        return binStr;
     }
     //=================================================
     /**
@@ -246,6 +251,78 @@ public class BinaryArithmetic {
         finalResult = result.replaceFirst("1", "");
         else finalResult = result;
         return finalResult;
+    }
+    //=================================================
+    /**
+     * This method was created for multiplication of two binary
+     * @param bin1  get value of first binary from user input
+     * @param bin2  get value of Second binary from user input
+     * @return return binary multiplication result
+     */
+    String multiplyBinary(String bin1, String bin2) {
+        multiplyDigit.clear();
+        binMultiply.clear();
+
+        int nTemp;
+        String bin1stTemp;
+        if(bin2.length() > bin1.length()) {
+            nTemp = bin1.length();
+            bin1stTemp = bin2;
+            //split and add bin1 to arraylist of integer
+            for (int i = nTemp - 1; i >= 0; i--){
+                multiplyDigit.add(bin1.charAt(i) - '0');
+            }
+        }else{
+            nTemp = bin2.length();
+            bin1stTemp = bin1;
+            //split and add bin2 to arraylist of integer
+            for (int i = nTemp - 1; i >= 0; i--){
+                multiplyDigit.add(bin2.charAt(i) - '0');
+            }
+        }
+
+        // operator mode...
+        int upper = nTemp - 1;
+        int lower = 0;
+        StringBuilder upperBit = new StringBuilder();
+        StringBuilder lowerBit = new StringBuilder();
+        // split and append mode
+        for (int i = 0; i < nTemp; i++) {
+            if (multiplyDigit.get(i) == 1) {
+                upperBit.setLength(0);
+                lowerBit.setLength(0);
+                for (int j = 0; j < upper; j++) {
+                    upperBit.append("0");
+                }
+                for (int k = lower; k > 0; k--){
+                    lowerBit.append("0");
+                }
+                upperBit.append(bin1stTemp);
+                upperBit.append(lowerBit);
+                binMultiply.add(upperBit.toString());
+            }
+            upper--;
+            lower++;
+        }
+
+        // addition mode...
+        String result = binaryAdd(binMultiply.get(0), binMultiply.get(1));
+        for (int i = 2; i < binMultiply.size(); i++){
+            result = binaryAdd(result, binMultiply.get(i));
+        }
+        return result;
+    }
+    //=================================================
+
+    /**
+     * This method was created for division of two binary
+     * @param bin1 get value of first binary from user input
+     * @param bin2 get value of Second binary from user input
+     * @return return binary division result,but it doesn't have floating point yet!
+     */
+    String divideBinary(String bin1, String bin2) {
+        NumberSystemConversion numberSystemConversion = new NumberSystemConversion();
+        return numberSystemConversion.decimal2Binary(numberSystemConversion.binary2Decimal(bin1) / numberSystemConversion.binary2Decimal(bin2));
     }
     //=================================================
     //Nested class

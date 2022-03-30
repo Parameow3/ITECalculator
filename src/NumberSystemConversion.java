@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * NumberSystemConversion.java    :    This class is created for Covert System of number
@@ -8,7 +9,7 @@ public class NumberSystemConversion {
 
     ArrayList<Character> HexDigit = new ArrayList<>(); // Create an ArrayList object
     ArrayList<String> Binary3Digit = new ArrayList<>();
-    ArrayList<Character> BinaryDigit = new ArrayList<>();
+    ArrayList<String> BinaryDigit = new ArrayList<>();
     ArrayList<Character> OctalDigit = new ArrayList<>();
     ArrayList<String> Binary4Digit = new ArrayList<>();
 
@@ -176,26 +177,24 @@ public class NumberSystemConversion {
 
     /**
      * This method is for convert from decimal to binary
-     * @param decimal get value in long integer type for covert and then print result out
+     * @param decimal get value in long integer type for covert
+     * @return and then return result out
      */
-    void decimal2Binary(long decimal) {
+    String decimal2Binary(long decimal) {
         long remainder;
         if(decimal == 0)
-            BinaryDigit.add('0');
+            BinaryDigit.add("0");
         while(decimal != 0) {
             remainder = decimal % 2;
             decimal /= 2;
             if (remainder == 1)
-                BinaryDigit.add('1');
+                BinaryDigit.add("1");
             else
-                BinaryDigit.add('0');
+                BinaryDigit.add("0");
         }
-        //display result
-        System.out.println("=====================================");
-        System.out.print("Binary: ");
-        for (int i = BinaryDigit.size() - 1; i >= 0; i--) {
-            System.out.print(BinaryDigit.get(i));
-        }
+        Collections.reverse(BinaryDigit);
+        String binStr = String.join("", BinaryDigit);
+        return binStr;
     }
 
     /**
