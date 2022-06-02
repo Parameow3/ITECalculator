@@ -22,6 +22,7 @@ public class  ITECalculator {
             System.out.println("5. Storage Converter");
             System.out.println("6. Number System Conversion");
             System.out.println("7. Binary Arithmetic");
+            System.out.println("8. Set Theory");
             System.out.println("0. Exit");
             System.out.print("PLease Input your Option:");
             Scanner sc = new Scanner(System.in);
@@ -359,6 +360,9 @@ public class  ITECalculator {
                             System.out.println("Binary1 / Binary2 = " + binaryArithmetic.divideBinary(bin1, bin2) + "\t[" + numberSystemConversion.binary2Decimal(binaryArithmetic.divideBinary(bin1, bin2)) + "]");
                         }
                     }
+                }
+                case 8 -> {
+                    SetTheory setTheory = new SetTheory();
                 }
                 case 0 -> {
                     System.out.println("\n=====================================");
