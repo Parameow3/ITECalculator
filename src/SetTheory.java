@@ -1,104 +1,116 @@
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class SetTheory { // A
 
-    public void createSet() { // C
+    private ArrayList <Integer> set1 = new ArrayList<>();
+    private ArrayList <Integer> set2 = new ArrayList<>();
 
+    private Scanner scanner = new Scanner(System.in);
+
+
+    public void createSet() { //C
+
+        // get length of set 1
+        System.out.print("Please Input the size of 1st set: ");
+        int n1 = scanner.nextInt();
+
+        // user input item to set 1 : { 1, 2, 3, 5, 7 }
+        for (int i = 0; i < n1; i++) {
+            System.out.print("1st Set [" + i + "]: ");
+            set1.add(scanner.nextInt());
+        }
+
+        // get length of set 1
+        System.out.print("Please Input the size of 2nd set: ");
+        int n2 = scanner.nextInt();
+
+        // user input item to set 1 : { 1, 2, 3, 5, 7 }
+        for (int i = 0; i < n2; i++) {
+            System.out.print("2nd Set [" + i + "]: ");
+            set2.add(scanner.nextInt());
+        }
+
+        // display sets
+        System.out.println("+--------------------------+");
+        System.out.println("1st set: " + set1);
+        System.out.println("2nd set: " + set2);
     }
 
-    public void union() { // H
 
-        // instantiate SetUnion
+    // method Union #H
+    public void union() {
+
+        // instantiate setUnion
         SetUnion setUnion = new SetUnion();
 
-        // call createSet from outer class
+        // for user create 2 set
         createSet();
 
-        // call unionOperation and display from setUnion
-        setUnion.unionOperation();
+        // unionOperation + display result
         setUnion.display();
     }
 
-    public void intersection() { // I
+    // *************** Inner Class ************* \\
+    // SetUnion #G
+    private class SetUnion implements UnionHelper{
 
-        // local class SetIntersection
-        class SetIntersection implements IntersectionHelper{
+        @Override
+        public ArrayList <Integer> unionOperation() {
 
-            // override method implements from interface
-            @Override
-            public ArrayList<Integer> intersectionOperation() {
-                return null;
+            boolean existed = true;
+            ArrayList <Integer> unionResult = new ArrayList<>();
+            unionResult.addAll(set1);
+
+            for (int i = 0; i < set2.size(); i++) {
+                // set2: { 1, 3, 4, 6, 7 }
+                for (int j = 0; j < set1.size(); j++) {
+                    //set1: { 1, 2, 5, 6, 9 }
+                    if (set2.get(i) == set1.get(j)) {
+                        existed = true;
+                        break;
+                    }
+                    else
+                        existed = false;
+                }
+                // if the item is not existed then add the item of set 2 to the list
+                if (!existed)
+                    unionResult.add(set2.get(i));
             }
-            @Override
-            public void display() {
-            }
+            Collections.sort(unionResult);
+            return unionResult;
         }
-
-        // instantiate SetUnion
-        SetIntersection setIntersection = new SetIntersection();
-
-        // call createSet from outer class
-        createSet();
-
-        // call intersectionOperation and display from setIntersection
-        setIntersection.intersectionOperation();
-        setIntersection.display();
+        @Override
+        public void display() {
+            System.out.println("+--------------------- Result --------------------+");
+            System.out.println("Union of set1 and set2: " + unionOperation());
+            System.out.println("+-------------------------------------------------+");
+        }
     }
 
-    public void setDiff() { // J
+    // *************** Interface ************* \\
 
-        // anonymous inner class
-        abstract class SetDifference implements SetDifferenceHelper { }
+    // UnionHelper Interface #B
+    public interface UnionHelper {
 
-        SetDifference setDifference = new SetDifference() {
-            @Override
-            public ArrayList<Integer> differenceOperation() {
-                return null;
-            }
-
-            @Override
-            public void display() {
-
-            }
-        };
-
-        // call createSet from outer class
-        createSet();
-
-        // call differenceOperation and display from setIntersection
-        setDifference.differenceOperation();
-        setDifference.display();
-    }
-
-    public interface UnionHelper { // B
-        // D
+        // create two method as abstract #D
         ArrayList <Integer> unionOperation();
         void display();
     }
+    // IntersectionHelper Interface #B
+    public interface IntersectionHelper {
 
-    public interface IntersectionHelper { // B
-        // E
+        // create two method as abstract #E
         ArrayList <Integer> intersectionOperation();
         void display();
     }
+    //SetDifferenceHelper Interface #B
+    public interface SetDifferenceHelper {
 
-    public interface SetDifferenceHelper { // B
-        // F
+        // create two method as abstract #E
         ArrayList <Integer> differenceOperation();
         void display();
     }
-
-    public class SetUnion implements UnionHelper{ // G
-
-        @Override
-        public ArrayList<Integer> unionOperation() {
-            return null;
-        }
-
-        @Override
-        public void display() {
-
-        }
-    }
-
 }

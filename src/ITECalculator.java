@@ -363,6 +363,7 @@ public class  ITECalculator {
                 }
                 case 8 -> {
                     SetTheory setTheory = new SetTheory();
+                    setTheory.union();
                 }
                 case 0 -> {
                     System.out.println("\n=====================================");
