@@ -1,8 +1,38 @@
+import java.util.Scanner;
+
 /**
  * Trigonometry.java    :    This class is created for scientific calculator
  * Created on Monday, January 10th 2022      by Tan Bunchhay
  */
 public class Trigonometry {
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public void generateInterface() {
+
+        System.out.println("********** Trigonometry **********");
+
+        System.out.print("PLease Input Degree of angle:");
+        double Degree = scanner.nextDouble();
+
+        System.out.print("PLease Input Base of square 2/3 in floating point:");
+        double Base = scanner.nextDouble();
+
+        //Display
+        System.out.println("=====================================");
+        System.out.println("Sin: " + String.format("%.2f", sin(degree2Radian(Degree))));
+        System.out.println("Sin Degree: " + String.format("%.2f", sind(Degree)));
+        System.out.println("Cos: " + String.format("%.2f", cos(degree2Radian(Degree))));
+        System.out.println("Cos Degree: " + String.format("%.2f", cosd(Degree)));
+        System.out.println("Tan: " + String.format("%.2f", tan(degree2Radian(Degree))));
+        System.out.println("Tan Degree: " + String.format("%.2f", tand(Degree)));
+        System.out.println("Square2 Integer: " + square2int(Base));
+        System.out.println("Square2 Floating point: " + String.format("%.2f", square2(Base)));
+        System.out.println("Square3 Integer: " + square3int(Base));
+        System.out.println("Square3 Floating point: " + String.format("%.2f", square3(Base)));
+        System.out.println("Radians: " + String.format("%.2f", degree2Radian(Degree)));
+    }
+
     /**
      * The method for find sin value in Radian
      * @param radian The input parameter in radian

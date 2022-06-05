@@ -1,8 +1,92 @@
+import java.math.BigDecimal;
+import java.util.Scanner;
+
 /**
  * StorageConverter.java    :   This class will consist of wide ranges of methods to perform conversion.
  * Created on Sunday, January 16th 2022      by Tan Bunchhay
  */
 public class StorageConverter {
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public void generateInterface() {
+
+        System.out.println("********** Storage Converter **********");
+        System.out.println("1. Byte");
+        System.out.println("2. Kilobyte");
+        System.out.println("3. Megabyte");
+        System.out.println("4. Gigabyte");
+        System.out.println("5. Terabyte");
+        System.out.println("6. Petabyte");
+
+        System.out.print("Please choose from 1 to 6:");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1 -> {
+                System.out.print("Please Input Byte value: ");
+                Scanner numByte = new Scanner(System.in);
+                long byteValue = numByte.nextLong();
+                System.out.println("- Byte to Kilobyte: " + BigDecimal.valueOf(byte2KB(byteValue)).toPlainString());
+                System.out.println("- Byte to Megabyte: " + BigDecimal.valueOf(byte2MB(byteValue)).toPlainString());
+                System.out.println("- Byte to Gigabyte: " + BigDecimal.valueOf(byte2GB(byteValue)).toPlainString());
+                System.out.println("- Byte to Terabyte: " + BigDecimal.valueOf(byte2TB(byteValue)).toPlainString());
+                System.out.println("- Byte to Petabyte: " + BigDecimal.valueOf(byte2PB(byteValue)).toPlainString());
+            }
+            case 2 -> {
+                System.out.print("Please Input Kilobyte value: ");
+                Scanner numKB = new Scanner(System.in);
+                long kByte = numKB.nextLong();
+                System.out.println("- Kilobyte to Byte: " + BigDecimal.valueOf(kb2Byte(kByte)).toPlainString());
+                System.out.println("- Kilobyte to Megabyte: " + BigDecimal.valueOf(kb2MB(kByte)).toPlainString());
+                System.out.println("- Kilobyte to Gigabyte: " + BigDecimal.valueOf(kb2GB(kByte)).toPlainString());
+                System.out.println("- Kilobyte to Terabyte: " + BigDecimal.valueOf(kb2TB(kByte)).toPlainString());
+                System.out.println("- Kilobyte to Petabyte: " + BigDecimal.valueOf(kb2PB(kByte)).toPlainString());
+            }
+            case 3 -> {
+                System.out.print("Please Input Megabyte value: ");
+                Scanner numMB = new Scanner(System.in);
+                long mByte = numMB.nextLong();
+                System.out.println("- Megabyte to byte: " + BigDecimal.valueOf(mb2Byte(mByte)).toPlainString());
+                System.out.println("- Megabyte to Kilobyte: " + BigDecimal.valueOf(mb2KB(mByte)).toPlainString());
+                System.out.println("- Megabyte to Gigabyte: " + BigDecimal.valueOf(mb2GB(mByte)).toPlainString());
+                System.out.println("- Megabyte to Terabyte: " + BigDecimal.valueOf(mb2TB(mByte)).toPlainString());
+                System.out.println("- Megabyte to Petabyte: " + BigDecimal.valueOf(mb2PB(mByte)).toPlainString());
+            }
+            case 4 -> {
+                System.out.print("Please Input Gigabyte value: ");
+                Scanner numGB = new Scanner(System.in);
+                long gByte = numGB.nextLong();
+                System.out.println("- Gigabyte to byte: " + BigDecimal.valueOf(gb2Byte(gByte)).toPlainString());
+                System.out.println("- Gigabyte to Kilobyte: " + BigDecimal.valueOf(gb2KB(gByte)).toPlainString());
+                System.out.println("- Gigabyte to Megabyte: " + BigDecimal.valueOf(gb2MB(gByte)).toPlainString());
+                System.out.println("- Gigabyte to Terabyte: " + BigDecimal.valueOf(gb2TB(gByte)).toPlainString());
+                System.out.println("- Gigabyte to Petabyte: " + BigDecimal.valueOf(gb2PB(gByte)).toPlainString());
+            }
+            case 5 -> {
+                System.out.print("Please Input Terabyte value: ");
+                Scanner numTB = new Scanner(System.in);
+                long tByte = numTB.nextLong();
+                System.out.println("- Terabyte to byte: " + BigDecimal.valueOf(tb2Byte(tByte)).toPlainString());
+                System.out.println("- Terabyte to Kilobyte: " + BigDecimal.valueOf(tb2KB(tByte)).toPlainString());
+                System.out.println("- Terabyte to Megabyte: " + BigDecimal.valueOf(tb2MB(tByte)).toPlainString());
+                System.out.println("- Terabyte to Gigabyte: " + BigDecimal.valueOf(tb2GB(tByte)).toPlainString());
+                System.out.println("- Terabyte to Petabyte: " + BigDecimal.valueOf(tb2PB(tByte)).toPlainString());
+            }
+            case 6 -> {
+                System.out.print("Please Input Petabyte value: ");
+                Scanner numPB = new Scanner(System.in);
+                long pByte = numPB.nextLong();
+                System.out.println("- Petabyte to byte: " + BigDecimal.valueOf(pb2Byte(pByte)).toPlainString());
+                System.out.println("- Petabyte to Kilobyte: " + BigDecimal.valueOf(pb2KB(pByte)).toPlainString());
+                System.out.println("- Petabyte to Megabyte: " + BigDecimal.valueOf(pb2MB(pByte)).toPlainString());
+                System.out.println("- Petabyte to Gigabyte: " + BigDecimal.valueOf(pb2GB(pByte)).toPlainString());
+                System.out.println("- Petabyte to Terabyte: " + BigDecimal.valueOf(pb2TB(pByte)).toPlainString());
+            }
+            default -> System.out.println("Valid Input!");
+        }
+    }
+
     Trigonometry trigonometry = new Trigonometry();
     /**
      * This method use to convert from byte to kilobyte.

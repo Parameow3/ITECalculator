@@ -1,11 +1,99 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 /**
  * NumberSystemConversion.java    :    This class is created for Covert System of number
  * Created on Tuesday, January 25th 2022      by Tan Bunchhay
  */
 public class NumberSystemConversion {
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public void generateInterface() {
+
+        System.out.println("=====================================");
+        System.out.println("********** NumberSystemConversion **********");
+        System.out.println("1. Binary");
+        System.out.println("2. Octal");
+        System.out.println("3. Decimal");
+        System.out.println("4. Hexadecimal");
+
+        System.out.print("Please choose your Option:");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1 -> {
+
+                System.out.println("=====================================");
+                System.out.println("***** Binary Converter *****");
+
+                System.out.println("Please Input Binary:");
+                String binary = scanner.nextLine();
+
+                //Check digit of binary before convert
+                if (isValidBinary(binary))
+                    System.out.println("Valid Input Binary!");
+                else {
+                    System.out.println("Octal: " + binary2Octal(binary));
+                    System.out.println("Decimal: " + binary2Decimal(binary));
+                    binary2Hex(binary);
+                }
+            }
+            case 2 -> {
+
+                System.out.println("=====================================");
+                System.out.println("***** Octal Converter *****");
+
+                System.out.print("Please Input Octal:");
+                String octal = scanner.nextLine();
+
+                if (isValidOctal(octal))
+                    System.out.println("Valid Input Octal!");
+                else {
+                    System.out.println("Decimal: " + octal2Decimal(octal));
+                    octal2Binary(octal);
+                    System.out.println();
+                    octal2Hex(octal);
+                }
+
+            }
+            case 3 -> {
+
+                System.out.println("=====================================");
+                System.out.println("***** Decimal Converter *****");
+
+                System.out.print("Please Input Decimal:");
+                long decimal = scanner.nextLong();
+                String decStr = scanner.nextLine();
+
+                if (isValidDecimal(decStr))
+                    System.out.println("Valid Input Decimal!");
+                else {
+                    System.out.println("Binary: " + decimal2Binary(decimal));
+                    decimal2Octal(decimal);
+                    decimal2Hex(decimal);
+                }
+            }
+            case 4 -> {
+
+                System.out.println("=====================================");
+                System.out.println("***** Hexadecimal Converter *****");
+
+                System.out.print("Please Input Hexadecimal:");
+                String hex = scanner.nextLine().toUpperCase();
+                //Display result
+                if (isValidHex(hex))
+                    System.out.println("Valid Input Hexadecimal!");
+                else {
+                    System.out.println("Binary: " + hex2Binary(hex));
+                    hex2Octal(hex);
+                    System.out.println("Decimal: " + hex2Decimal(hex));
+                }
+            }
+            default -> System.out.println("InValid Input!");
+        }
+    }
 
     ArrayList<Character> HexDigit = new ArrayList<>(); // Create an ArrayList object
     ArrayList<String> Binary3Digit = new ArrayList<>();

@@ -1,8 +1,33 @@
+import java.util.Scanner;
+
 /**
  * Bitwise.java    :    This class is created for bitwise calculator
  * Created on Monday, January 10th 2022      by Tan Bunchhay
  */
 public class Bitwise {
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public void generateInterface() {
+
+        System.out.println("********** Bitwise **********");
+
+        System.out.print("Please Input value a:");
+        int a = scanner.nextInt();
+
+        System.out.print("Please Input value b:");
+        int b = scanner.nextInt();
+
+        //display result (AND, OR, XOR, <<, >>, ~)
+        System.out.println("=====================================");
+        System.out.println("AND: " + AND(a, b));
+        System.out.println("OR: " + OR(a, b));
+        System.out.println("XOR: " + XOR(a, b));
+        System.out.println("Left-Shift: " + leftShift(a, b));
+        System.out.println("Right-Shift: " + rightShift(a, b));
+        System.out.println("Bit-Inversion: " + bitInversion(a));
+    }
+
     /**
      * The Bitwise operator AND method of integer a and b
      * @param a first Input parameter of value a
