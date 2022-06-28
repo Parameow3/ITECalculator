@@ -14,8 +14,10 @@ public class MainWindowView extends JFrame {
 
 
         this.add(new CalculatorView());
-        this.add(new StandardView());
 
+
+        //this.add(new StandardView());
+        this.add(new ScientificView());
 
 
 

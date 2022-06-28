@@ -26,6 +26,8 @@ public class CalculatorView extends JPanel {
         navigationButton.setSize(40, 40);
 //        navigationButton.setPreferredSize(new Dimension(40, 40));
         navigationButton.setLocation(25, 28);
+        navigationButton.setIcon(new ImageIcon("src/image/icon-calculator/navigation.png"));
+        navigationButton.setBackground(null);
 
         // categories combo box
         String[] categories ={"Standard","Scientific","Programmer"};
@@ -39,6 +41,8 @@ public class CalculatorView extends JPanel {
         historyButton.setSize(30, 30);
 //        historyButton.setPreferredSize(new Dimension(30, 30));
         historyButton.setLocation(497, 37);
+        historyButton.setIcon(new ImageIcon("src/image/icon-calculator/history.png"));
+        historyButton.setBackground(null);
 
         // history label
         historyLabel = new JLabel("0", SwingConstants.RIGHT);
