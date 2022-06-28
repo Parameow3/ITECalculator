@@ -1,9 +1,11 @@
+package Algorithm;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * BinaryArithmetic.java    :    This class is created for calculate all
+ * Algorithm.BinaryArithmetic.java    :    This class is created for calculate all
  *                               Binary Operator.
  * Created on Friday, February 11th 2022      by Tan Bunchhay
  */
@@ -36,7 +38,7 @@ public class BinaryArithmetic {
 
         // user input
         System.out.println("=====================================");
-        System.out.println("********** Binary Arithmetic **********");
+        System.out.println("********** Binary Algorithm.Arithmetic **********");
         System.out.println("1. Binary Add/Subtract");
         System.out.println("2. add/subtract With2ndComplement");
         System.out.println("3. Binary Multiply/Divide");
@@ -104,7 +106,7 @@ public class BinaryArithmetic {
                         System.out.println("Binary2: " + bin2 + "\t[" + DecOfB2 + "]");
                     }
                     System.out.println("=====================================");
-                    // Complement Arithmetic operator display
+                    // Complement Algorithm.Arithmetic operator display
                     System.out.println("addWith2ndComplement: " + addWith2ndComplement(bin1, bin2)
                                         + "\t[" + (DecOfB1 + DecOfB2) + "]");
                     System.out.println("subtractWith2ndComplement: " + subtractWith2ndComplement(bin1, bin2)
