@@ -14,7 +14,7 @@ public class CalculatorView extends JPanel {
 
     public CalculatorView() {
 
-        this.setSize(562, 326);
+        this.setSize(545, 300);
         //this.setPreferredSize(new Dimension(562, 326));
         this.setLocation(0,0);
         this.setBorder(new LineBorder(Color.BLUE, 1));
@@ -49,7 +49,7 @@ public class CalculatorView extends JPanel {
         historyLabel.setSize(520, 58);
 //        historyLabel.setPreferredSize(new Dimension(550, 58));
         historyLabel.setFont(new Font("Inter", Font.BOLD, 48));
-        historyLabel.setLocation(4, 135);
+        historyLabel.setLocation(4, 125);
         historyLabel.setForeground(new Color(105, 103, 103));
 
         // numberLabel
@@ -57,7 +57,7 @@ public class CalculatorView extends JPanel {
         numberLabel.setSize(540, 155);
 //        numberLabel.setPreferredSize(new Dimension(550, 155));
         numberLabel.setFont(new Font("Inter", Font.BOLD, 128));
-        numberLabel.setLocation(4, 193);
+        numberLabel.setLocation(4, 170);
 
         //add component to panel
         this.add(navigationButton);

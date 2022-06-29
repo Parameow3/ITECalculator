@@ -7,7 +7,7 @@ public class MainWindowView extends JFrame {
 
     public MainWindowView() {
 
-        this.setSize(562, 888);
+        this.setSize(562, 768);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);

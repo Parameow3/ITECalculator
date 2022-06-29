@@ -3,12 +3,11 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class ScientificView extends JPanel {
+public class ProgrammerView extends JPanel {
 
     private JButton[] keyButton = new JButton[48];
 
-    public ScientificView() {
-
+    public ProgrammerView() {
         this.setSize(540, 413);
         this.setLocation(4, 320);
         this.setLayout(new GridLayout(8, 6, 2, 2));
@@ -16,6 +15,7 @@ public class ScientificView extends JPanel {
         addButton();
 
         this.setBackground(new Color(234, 234, 234));
+
     }
 
     private void addButton() {

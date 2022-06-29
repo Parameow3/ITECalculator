@@ -8,8 +8,8 @@ public class StandardView extends JPanel {
     private JButton[] keyButton = new JButton[24];
     public StandardView() {
 
-        this.setSize(540, 495);
-        this.setLocation(4, 355);
+        this.setSize(540, 413);
+        this.setLocation(4, 325);
         this.setLayout(new GridLayout(6, 4, 4, 6));
 
         addButton();
