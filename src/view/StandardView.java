@@ -9,7 +9,7 @@ public class StandardView extends JPanel {
     public StandardView() {
 
         this.setSize(540, 413);
-        this.setLocation(4, 325);
+        this.setLocation(4, 320);
         this.setLayout(new GridLayout(6, 4, 4, 6));
 
         addButton();
@@ -18,11 +18,13 @@ public class StandardView extends JPanel {
     }
 
     private void addButton() {
-        String[] buttonIcon = {"%", "CE", "C", "src/image/delete.png", "1/x", "src/image/square2.png",
-                                "src/image/squareRoot.png", "src/image/divide.png", "7", "8", "9",
-                                "src/image/multiply.png", "4", "5", "6", "src/image/minus.png",
-                                "1", "2", "3", "src/image/Plus.png", "mod", "0", "." ,
-                                "src/image/Equal.png"};
+        String[] buttonIcon = {"%", "CE", "C", "src/image/icon-standard/delete.png", "1/x",
+                                "src/image/icon-standard/square2.png", "src/image/icon-standard/squareRoot.png",
+                                "src/image/icon-standard/divide.png", "7", "8", "9",
+                                "src/image/icon-standard/multiply.png", "4", "5", "6",
+                                "src/image/icon-standard/minus.png",
+                                "1", "2", "3", "src/image/icon-standard/Plus.png", "mod", "0", "." ,
+                                "src/image/icon-standard/Equal.png"};
         for (int i = 0; i < 24; i++) {
 
 
