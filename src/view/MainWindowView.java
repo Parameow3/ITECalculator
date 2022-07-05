@@ -10,14 +10,14 @@ public class MainWindowView extends JFrame {
         this.setSize(562, 768);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
 
 
-        this.add(new CalculatorView());
+        this.add(new CalculatorView(), BorderLayout.NORTH);
 
 
-        this.add(new StandardView());
-        //this.add(new ScientificView());
+        //this.add(new StandardView(), BorderLayout.SOUTH);
+        this.add(new ScientificView(), BorderLayout.SOUTH);
 
 
 

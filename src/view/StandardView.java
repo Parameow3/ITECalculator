@@ -9,7 +9,7 @@ public class StandardView extends JPanel {
     public StandardView() {
 
         this.setSize(540, 413);
-        this.setLocation(4, 320);
+        this.setLocation(4, 315);
         this.setLayout(new GridLayout(6, 4, 4, 6));
 
         addButton();
@@ -26,7 +26,6 @@ public class StandardView extends JPanel {
                                 "1", "2", "3", "src/image/icon-standard/Plus.png", "mod", "0", "." ,
                                 "src/image/icon-standard/Equal.png"};
         for (int i = 0; i < 24; i++) {
-
 
             if (i == 3 || i == 5 || i == 6 || i == 7 ||
                 i == 11 || i == 15 || i == 19 || i == 23) {
