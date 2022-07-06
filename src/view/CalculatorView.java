@@ -6,11 +6,9 @@ import java.awt.*;
 
 public class CalculatorView extends JPanel {
 
-    private JButton navigationButton;
-    private JComboBox categoriesComboBox;
-    private JButton historyButton;
     private JLabel historyLabel;
     private JLabel numberLabel;
+
 
     public CalculatorView() {
 
@@ -20,29 +18,6 @@ public class CalculatorView extends JPanel {
         this.setBorder(new LineBorder(Color.BLUE, 1));
         this.setBackground(new Color(234, 234, 234));
 
-        // navigation Button
-        navigationButton = new JButton();
-        //navigationButton.setSize(40, 40);
-        navigationButton.setPreferredSize(new Dimension(40, 40));
-        //navigationButton.setLocation(25, 28);
-        navigationButton.setIcon(new ImageIcon("src/image/icon-calculator/navigation.png"));
-        navigationButton.setBackground(this.getBackground());
-
-        // categories combo box
-        String[] categories ={"Standard","Scientific","Programmer"};
-        categoriesComboBox = new JComboBox<>(categories);
-        //categoriesComboBox.setBounds(73, 28, 274, 40);
-        categoriesComboBox.setPreferredSize(new Dimension(274, 40));
-        categoriesComboBox.setFont(new Font("Itim", Font.PLAIN, 40));
-        categoriesComboBox.setFocusable(false);
-
-        // history button
-        historyButton = new JButton();
-        //historyButton.setSize(30, 30);
-        historyButton.setPreferredSize(new Dimension(30, 30));
-        //historyButton.setLocation(497, 37);
-        historyButton.setIcon(new ImageIcon("src/image/icon-calculator/history.png"));
-        historyButton.setBackground(this.getBackground());
 
         // history label
         historyLabel = new JLabel("0", SwingConstants.RIGHT);
@@ -59,10 +34,13 @@ public class CalculatorView extends JPanel {
         numberLabel.setFont(new Font("Inter", Font.BOLD, 128));
 //        numberLabel.setLocation(4, 170);
 
+
+
         //add component to panel
-        this.add(navigationButton, BorderLayout.NORTH);
-        this.add(categoriesComboBox, BorderLayout.NORTH);
-        this.add(historyButton, BorderLayout.NORTH);
+//        this.add(navigationButton, BorderLayout.NORTH);
+//        this.add(categoriesComboBox, BorderLayout.NORTH);
+//        this.add(historyButton, BorderLayout.NORTH);
+
         this.add(historyLabel, BorderLayout.CENTER);
         this.add(numberLabel, BorderLayout.SOUTH);
     }
