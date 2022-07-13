@@ -14,10 +14,11 @@ public class MainWindowView extends JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+
         Calculator calculator = new Calculator();
         CalculatorView calculatorView = new CalculatorView(calculator);
 
-        this.getContentPane().add(new CalculatorView(calculator), BorderLayout.PAGE_START);
+        this.getContentPane().add(calculatorView, BorderLayout.PAGE_START);
         this.getContentPane().add(new StandardView(calculator, calculatorView), BorderLayout.CENTER);
 
         this.setBackground(new Color(234, 234, 234));

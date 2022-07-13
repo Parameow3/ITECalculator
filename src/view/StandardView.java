@@ -17,9 +17,6 @@ public class StandardView extends JPanel implements ActionListener {
         this.calculator = calculator;
         this.calculatorView = calculatorView;
 
-        //this.setSize(540, 413);
-        //this.setLocation(4, 315);
-        //this.setPreferredSize(new Dimension(540, 413));
         this.setLayout(new GridLayout(6, 4, 4, 6));
 
         addButton();
@@ -68,11 +65,13 @@ public class StandardView extends JPanel implements ActionListener {
         else if (e.getSource() == keyButton[3]) {
             if (calculator.getNumber().length() == 1) {
                 calculator.setNumber("0");
+                calculatorView.setNumLabel(calculator.getNumber());
             }
             else {
                 calculator.setNumber(calculator.getNumber()
-                                                .substring(0, calculator.getNumber()
-                                                                        .length()-1));
+                        .substring(0, calculator.getNumber()
+                                .length()-1));
+                calculatorView.setNumLabel(calculator.getNumber());
             }
         }
         else if (e.getSource() == keyButton[4]) {
@@ -88,45 +87,86 @@ public class StandardView extends JPanel implements ActionListener {
 
         }
         else if (e.getSource() == keyButton[8]) { // 7
-            calculator.setNumber(calculator.getNumber() + "7");
-
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("7");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "7");
+            }
         }
         else if (e.getSource() == keyButton[9]) { // 8
-            calculator.setNumber(calculator.getNumber() + "8");
-
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("8");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "8");
+            }
         }
         else if (e.getSource() == keyButton[10]) { // 9
-            calculator.setNumber(calculator.getNumber() + "9");
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("9");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "9");
+            }
 
         }
         else if (e.getSource() == keyButton[11]) {
 
         }
         else if (e.getSource() == keyButton[12]) { // 4
-            calculator.setNumber(calculator.getNumber() + "4");
-
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("4");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "4");
+            }
         }
         else if (e.getSource() == keyButton[13]) { // 5
-            calculator.setNumber(calculator.getNumber() + "5");
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("5");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "5");
+            }
 
         }
         else if (e.getSource() == keyButton[14]) { // 6
-            calculator.setNumber(calculator.getNumber() + "6");
-
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("6");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "6");
+            }
         }
         else if (e.getSource() == keyButton[15]) {
 
         }
         else if (e.getSource() == keyButton[16]) { // 1
-            calculator.setNumber(calculator.getNumber() + "1");
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("1");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "1");
+            }
 
         }
         else if (e.getSource() == keyButton[17]) { // 2
-            calculator.setNumber(calculator.getNumber() + "2");
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("2");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "2");
+            }
 
         }
         else if (e.getSource() == keyButton[18]) { // 3
-            calculator.setNumber(calculator.getNumber() + "3");
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("3");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "3");
+            }
 
         }
         else if (e.getSource() == keyButton[19]) {
@@ -136,8 +176,12 @@ public class StandardView extends JPanel implements ActionListener {
 
         }
         else if (e.getSource() == keyButton[21]) { // 0
-            calculator.setNumber(calculator.getNumber() + "0");
-            System.out.println( calculator.getNumber());
+            if (calculator.getNumber().equals("0")) {
+                calculatorView.setNumLabel("0");
+            }
+            else {
+                calculatorView.setNumLabel(calculator.getNumber() + "0");
+            }
         }
         else if (e.getSource() == keyButton[22]) {
 
@@ -146,6 +190,5 @@ public class StandardView extends JPanel implements ActionListener {
 
         }
 
-        calculatorView.setNumLabel().setText(calculator.getNumber());
     }
 }
