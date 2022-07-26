@@ -17,7 +17,7 @@ public class CalculatorView extends JPanel implements ActionListener { // calcul
     private JPanel scientificPanel;
 
     private JButton[] keyButtonStandard = new JButton[24];
-    private JButton[] keyButtonScientific = new JButton[48];
+    private JButton[] keyButtonScientific = new JButton[30];
 
     private CardLayout cardLayout;
 
@@ -69,7 +69,7 @@ public class CalculatorView extends JPanel implements ActionListener { // calcul
         addButtonStandard();
 
         // customize scientific keyPad Panel
-        scientificPanel.setLayout(new GridLayout(8, 6, 2, 2));
+        scientificPanel.setLayout(new GridLayout(6, 5, 2, 2));
         addButtonScientific();
 
         // add component to Calculator panel
@@ -104,40 +104,28 @@ public class CalculatorView extends JPanel implements ActionListener { // calcul
     }
 
     private void addButtonScientific() {
-        String[] buttonIcon = {"set", "(", ")", "CE", "C", "src/image/icon-scientific/delete-small.png",
-                "src/image/icon-scientific/arrow.png", "1/x", "src/image/icon-scientific/sin-1.png",
-                "src/image/icon-scientific/cos-1.png", "src/image/icon-scientific/tan-1.png",
-                "src/image/icon-scientific/pi.png", "src/image/icon-scientific/union.png",
-                "src/image/icon-scientific/cubic.png", "sin", "cos", "tan", "e",
-                "src/image/icon-scientific/intersection.png", "src/image/icon-scientific/log10.png",
-                "ln", "n!", "%", "src/image/icon-scientific/divide-small.png",
-                "src/image/icon-scientific/difference.png",
-                "src/image/icon-scientific/x-power-y.png", "7", "8", "9",
-                "src/image/icon-scientific/multiply-small.png", "src/image/icon-scientific/e-power-x.png",
+        String[] buttonIcon = {"(", ")", "CE", "C", "src/image/icon-scientific/delete-small.png",
+                "n!", "sin", "cos", "tan", "src/image/icon-scientific/divide-small.png",
+                "src/image/icon-scientific/pi.png", "7", "8", "9",
+                "src/image/icon-scientific/multiply-small.png",
                 "src/image/icon-scientific/square-root-small.png", "4", "5", "6",
-                "src/image/icon-scientific/minus-small.png", "src/image/icon-scientific/10power-x.png",
+                "src/image/icon-scientific/minus-small.png",
                 "src/image/icon-scientific/square2-small.png", "1", "2", "3",
-                "src/image/icon-scientific/plus-small.png", "src/image/icon-scientific/2power-x.png",
-                "src/image/icon-scientific/x-power-y.png", "mod", "0", ".",
+                "src/image/icon-scientific/plus-small.png", "DEG", "%", "0", ".",
                 "src/image/icon-scientific/Equal-small.png"};
-        for (int i = 0; i < 48; i++) {
+        for (int i = 0; i < 30; i++) {
 
 
-            if (i == 5 || i == 6 || i == 8 || i == 9 ||
-                    i == 10 || i == 11 || i == 12 || i == 13 ||
-                    i == 18 || i == 19 || i == 23 || i == 24 ||
-                    i == 25 || i == 29 || i == 30 || i == 31 ||
-                    i == 35 || i == 36 || i == 37 || i == 41 ||
-                    i == 42 || i == 43 || i == 47) {
+            if ( i == 4 || i == 9 || i == 10 || i == 14
+                || i == 15 || i == 19 || i == 20 || i == 24 || i == 29) {
 
                 keyButtonScientific[i] = new JButton(new ImageIcon(buttonIcon[i]));
             } else {
                 keyButtonScientific[i] = new JButton(buttonIcon[i]);
-                keyButtonScientific[i].setFont(new Font("Inter", Font.BOLD, 32));
+                keyButtonScientific[i].setFont(new Font("Inter", Font.BOLD, 24));
             }
-            if (i == 15)
-                keyButtonScientific[i].setFont(new Font("Inter", Font.BOLD, 30));
-            if (i == 44)
+
+            if (i == 25)
                 keyButtonScientific[i].setFont(new Font("Inter", Font.BOLD, 15));
             keyButtonScientific[i].setFocusable(false);
             keyButtonScientific[i].setBackground(new Color(199, 199, 199));
