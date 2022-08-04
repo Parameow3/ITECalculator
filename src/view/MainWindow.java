@@ -71,7 +71,7 @@ public class MainWindow{
         //----------------------------------
 
         // customize frame
-        mainFrame.setMinimumSize(new Dimension(400, 600));
+        mainFrame.setMinimumSize(new Dimension(420, 600));
         mainFrame.setTitle("Everyday Calculator");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setLocationRelativeTo(null);
