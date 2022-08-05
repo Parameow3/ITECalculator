@@ -4,8 +4,10 @@ import model.Calculator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MainWindow{
+public class MainWindow implements ActionListener {
 
     private final JFrame mainFrame;
     private final String[] calculatorCal = {"Standard", "Scientific", "Programmer"};
@@ -55,6 +57,7 @@ public class MainWindow{
 
         calculatorCB.setFont(new Font("Itim", Font.PLAIN, 40));
         calculatorCB.setFocusable(false);
+        calculatorCB.addActionListener(this);
 
         historyBTN.setIcon(new ImageIcon("src/image/icon-calculator/history.png"));
         historyBTN.setFocusable(false);
@@ -66,8 +69,9 @@ public class MainWindow{
 
         // customize Main panel
         mainPanel.setLayout(cardLayout);
-        mainPanel.add(new CalculatorView());
-
+        mainPanel.add(new StandardView(), "0");
+        mainPanel.add(new ScientificView(), "1");
+        cardLayout.show(mainPanel, "0");
         //----------------------------------
 
         // customize frame
@@ -83,7 +87,13 @@ public class MainWindow{
     }
 
 
-    public static void main(String[] args) {
-        new MainWindow();
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==calculatorCB) {
+            switch (calculatorCB.getSelectedIndex()) {
+                case 0 -> cardLayout.show(mainPanel, "0");
+                case 1 -> cardLayout.show(mainPanel, "1");
+            }
+        }
     }
 }
