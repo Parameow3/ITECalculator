@@ -31,7 +31,7 @@ public class ScientificView extends JPanel implements ActionListener {
         c = new GridBagConstraints();
         etchedBorder = new EtchedBorder();
 
-        displayLabel.setFont(new Font("Inter", Font.PLAIN, 55));
+        displayLabel.setFont(new Font("Itim", Font.PLAIN, 55));
         displayLabel.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 5, Color.LIGHT_GRAY));
         displayLabel.setPreferredSize(new Dimension(displayLabel.getWidth(), 65));
         displayLabel.setHorizontalAlignment(JLabel.RIGHT);
@@ -66,11 +66,11 @@ public class ScientificView extends JPanel implements ActionListener {
                 keyButtonScientific[i] = new JButton(new ImageIcon(buttonIcon[i]));
             } else {
                 keyButtonScientific[i] = new JButton(buttonIcon[i]);
-                keyButtonScientific[i].setFont(new Font("Inter", Font.BOLD, 24));
+                keyButtonScientific[i].setFont(new Font("Itim", Font.BOLD, 24));
             }
 
             if (i == 25)
-                keyButtonScientific[i].setFont(new Font("Inter", Font.BOLD, 15));
+                keyButtonScientific[i].setFont(new Font("Itim", Font.BOLD, 15));
             keyButtonScientific[i].setFocusable(false);
             keyButtonScientific[i].setBackground(new Color(199, 199, 199));
             keyButtonScientific[i].addActionListener(this);

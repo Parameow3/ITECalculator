@@ -4,7 +4,6 @@ import model.Calculator;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,7 +32,7 @@ public class StandardView extends JPanel implements ActionListener {
         c = new GridBagConstraints();
         etchedBorder = new EtchedBorder();
 
-        displayLabel.setFont(new Font("Inter", Font.PLAIN, 55));
+        displayLabel.setFont(new Font("Itim", Font.PLAIN, 55));
         displayLabel.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 5, Color.LIGHT_GRAY));
         displayLabel.setPreferredSize(new Dimension(displayLabel.getWidth(), 65));
         displayLabel.setHorizontalAlignment(JLabel.RIGHT);
@@ -64,10 +63,10 @@ public class StandardView extends JPanel implements ActionListener {
             }
             else {
                 keyButtonStandard[i] = new JButton(buttonIconStandard[i]);
-                keyButtonStandard[i].setFont(new Font("Inter", Font.PLAIN, 35));
+                keyButtonStandard[i].setFont(new Font("Itim", Font.PLAIN, 35));
             }
             if (i == 4 || i == 20 || i == 6 || i == 5)
-                keyButtonStandard[i].setFont(new Font("Inter", Font.PLAIN, 25));
+                keyButtonStandard[i].setFont(new Font("Itim", Font.PLAIN, 25));
             keyButtonStandard[i].setFocusable(false);
             keyButtonStandard[i].setBackground(new Color(199, 199, 199));
             keyButtonStandard[i].addActionListener(this);

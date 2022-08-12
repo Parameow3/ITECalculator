@@ -44,24 +44,24 @@ public class ProgrammerView extends JPanel implements ActionListener {
     }
 
     private void customLabel() {
-        displayLabel.setFont(new Font("Inter", Font.PLAIN, 55));
+        displayLabel.setFont(new Font("Itim", Font.PLAIN, 55));
         displayLabel.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 5, Color.LIGHT_GRAY));
         displayLabel.setPreferredSize(new Dimension(displayLabel.getWidth(), 65));
         displayLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        hexLabel.setFont(new Font("Inter", Font.PLAIN, 15));
+        hexLabel.setFont(new Font("Itim", Font.PLAIN, 15));
         hexLabel.setBorder(new EmptyBorder(0,10,0,0));
         hexLabel.setHorizontalAlignment(JLabel.LEFT);
 
-        decLabel.setFont(new Font("Inter", Font.PLAIN, 15));
+        decLabel.setFont(new Font("Itim", Font.PLAIN, 15));
         decLabel.setBorder(new EmptyBorder(0,10,0,0));
         decLabel.setHorizontalAlignment(JLabel.LEFT);
 
-        octLabel.setFont(new Font("Inter", Font.PLAIN, 15));
+        octLabel.setFont(new Font("Itim", Font.PLAIN, 15));
         octLabel.setBorder(new EmptyBorder(0,10,0,0));
         octLabel.setHorizontalAlignment(JLabel.LEFT);
 
-        binLabel.setFont(new Font("Inter", Font.PLAIN, 15));
+        binLabel.setFont(new Font("Itim", Font.PLAIN, 15));
         binLabel.setBorder(new EmptyBorder(0,10,0,0));
         binLabel.setHorizontalAlignment(JLabel.LEFT);
 
@@ -109,7 +109,7 @@ public class ProgrammerView extends JPanel implements ActionListener {
                 keyButtonProgrammer[i] = new JButton(new ImageIcon(buttonIcon[i]));
             } else {
                 keyButtonProgrammer[i] = new JButton(buttonIcon[i]);
-                keyButtonProgrammer[i].setFont(new Font("Inter", Font.BOLD, 24));
+                keyButtonProgrammer[i].setFont(new Font("Itim", Font.BOLD, 24));
             }
 
             keyButtonProgrammer[i].setFocusable(false);
