@@ -34,8 +34,8 @@ public class StandardView extends JPanel implements ActionListener {
         etchedBorder = new EtchedBorder();
 
         displayLabel.setFont(new Font("Inter", Font.PLAIN, 55));
-        displayLabel.setBorder(new EmptyBorder(0,0,5,10));
-        displayLabel.setPreferredSize(new Dimension(displayLabel.getWidth(), 75));
+        displayLabel.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 5, Color.LIGHT_GRAY));
+        displayLabel.setPreferredSize(new Dimension(displayLabel.getWidth(), 65));
         displayLabel.setHorizontalAlignment(JLabel.RIGHT);
         // customize constraint for label
         c.weightx = 1;

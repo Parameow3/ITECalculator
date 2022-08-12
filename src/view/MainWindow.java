@@ -55,7 +55,7 @@ public class MainWindow implements ActionListener {
         navigateBTN.setIcon(new ImageIcon("src/image/icon-calculator/navigation.png"));
         navigateBTN.setFocusable(false);
 
-        calculatorCB.setFont(new Font("Itim", Font.PLAIN, 40));
+        calculatorCB.setFont(new Font("Itim", Font.PLAIN, 30));
         calculatorCB.setFocusable(false);
         calculatorCB.addActionListener(this);
 
@@ -71,6 +71,7 @@ public class MainWindow implements ActionListener {
         mainPanel.setLayout(cardLayout);
         mainPanel.add(new StandardView(), "0");
         mainPanel.add(new ScientificView(), "1");
+        mainPanel.add(new ProgrammerView(), "2");
         cardLayout.show(mainPanel, "0");
         //----------------------------------
 
@@ -93,6 +94,7 @@ public class MainWindow implements ActionListener {
             switch (calculatorCB.getSelectedIndex()) {
                 case 0 -> cardLayout.show(mainPanel, "0");
                 case 1 -> cardLayout.show(mainPanel, "1");
+                case 2 -> cardLayout.show(mainPanel, "2");
             }
         }
     }
