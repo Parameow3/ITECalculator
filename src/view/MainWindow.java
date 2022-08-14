@@ -17,7 +17,7 @@ public class MainWindow implements ActionListener {
 
     private final JFrame mainFrame;
     private final String[] calculatorCal = {"Standard", "Scientific", "Programmer"};
-    private final String[] converterCal = {"Currency", "Data", " Number"};
+    private final String[] converterCal = {"Currency", "Data", "Number"};
 
     private JPanel mainPanel;
     private CardLayout cardLayout;
@@ -130,6 +130,8 @@ public class MainWindow implements ActionListener {
         mainPanel.add(new ScientificView(), "1");
         mainPanel.add(new ProgrammerView(), "2");
         mainPanel.add(new CurrencyView(), "3");
+        mainPanel.add(new DataView(), "4");
+        mainPanel.add(new NumberView(), "5");
         cardLayout.show(mainPanel, "0");
         //----------------------------------
 
@@ -157,6 +159,10 @@ public class MainWindow implements ActionListener {
                 cardLayout.show(mainPanel, "2");
             } else if (calculatorCB.getSelectedItem().toString().equals("Currency")) {
                 cardLayout.show(mainPanel, "3");
+            } else if (calculatorCB.getSelectedItem().toString().equals("Data")) {
+                cardLayout.show(mainPanel, "4");
+            } else if (calculatorCB.getSelectedItem().toString().equals("Number")) {
+                cardLayout.show(mainPanel, "5");
             }
         }
 
@@ -167,5 +173,6 @@ public class MainWindow implements ActionListener {
                 drawer.show();
             }
         }
+
     }
 }

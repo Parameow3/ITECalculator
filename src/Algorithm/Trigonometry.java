@@ -50,7 +50,7 @@ public class Trigonometry {
      * @return the result of sin degree
      */
     public double sind(double degree){
-        return Math.sin(degree);
+        return Math.sin(degree2Radian(degree));
     }
 
     /**
@@ -68,7 +68,7 @@ public class Trigonometry {
      * @return the result of cos degree
      */
     public double cosd(double degree){
-        return Math.cos(degree);
+        return Math.cos(degree2Radian(degree));
     }
 
     /**
@@ -86,7 +86,7 @@ public class Trigonometry {
      * @return the result of tan degree
      */
     public double tand(double degree){
-        return Math.tan(degree);
+        return Math.tan(degree2Radian(degree));
     }
 
     /**
@@ -133,5 +133,13 @@ public class Trigonometry {
      */
     public double degree2Radian(double degree){
         return Math.toRadians(degree);
+    }
+
+    public double factorial(double id) {
+        double n = 1;
+        for (int i = 1; i <= id; ++i) {
+            n = n * i;
+        }
+        return n;
     }
 }

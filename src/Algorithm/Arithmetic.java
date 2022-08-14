@@ -34,7 +34,7 @@ public class Arithmetic {
      * @param b second of value b
      * @return The sum of a and b
      */
-    public int sum(int a, int b){
+    public double sum(double a, double b){
         return a + b;
     }
 
@@ -44,8 +44,8 @@ public class Arithmetic {
      * @param b second of value b
      * @return The divide of a and b
      */
-    public double divide(int a, int b){
-        return (double) a / b;
+    public double divide(double a, double b){
+        return a / b;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Arithmetic {
      * @param b second of value b
      * @return The minus of a and b
      */
-    public int minus(int a, int b){
+    public double minus(double a, double b){
         return a - b;
     }
 
@@ -64,7 +64,7 @@ public class Arithmetic {
      * @param b second of value b
      * @return The multiplication of a and b
      */
-    public int multiply(int a, int b){
+    public double multiply(double a, double b){
         return a * b;
     }
 
@@ -74,7 +74,7 @@ public class Arithmetic {
      * @param b second of value b
      * @return The modulo of a and b
      */
-    public int modulo(int a, int b){
+    public double modulo(double a, double b){
         return a % b;
     }
 }
